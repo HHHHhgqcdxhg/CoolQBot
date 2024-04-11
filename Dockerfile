@@ -24,7 +24,7 @@ ENV LANG=zh_CN.UTF-8 LC_ALL=zh_CN.UTF-8
 COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
 RUN apt-get update \
   && apt-get -y upgrade \
-  && apt-get install -y --no-install-recommends curl locales fontconfig fonts-noto-cjk fonts-noto-color-emoji \
+  && apt-get install -y --no-install-recommends curl locales fontconfig fonts-noto-cjk fonts-noto-color-emoji git \
   && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
   && fc-cache -fv \
   && pip install --no-cache-dir --upgrade -r requirements.txt \
